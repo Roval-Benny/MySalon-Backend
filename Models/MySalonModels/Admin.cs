@@ -13,7 +13,7 @@ namespace MySalonModels
         public int Id { get; set; }
         public string PhoneNo { get; set; }
         public string UserName { get; set; }
-        public Salon SalonId { get; set; }
+        public int SalonId { get; set; }
         public string SalonName { get; set; }
 
     }
