@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MySalonModels
 {
-    public class BranchLocation
+    public class Branch
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

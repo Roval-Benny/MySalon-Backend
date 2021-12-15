@@ -20,5 +20,6 @@ namespace MySalonModels
         public Service ServiceId { get; set; }
         public Salon SalonId { get; set; }
         public string SalonName { get; set; }
+        public int Category { get; set; }
     }
 }
