@@ -1,0 +1,8 @@
+image: mcr.microsoft.com/dotnet/core/sdk
+stages:
+  - build
+build:
+  stage: build
+  script:
+    - 'dotnet restore'
+    - 'dotnet build'
