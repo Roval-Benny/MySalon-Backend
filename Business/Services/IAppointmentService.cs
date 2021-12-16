@@ -1,17 +1,16 @@
-﻿using System;
+﻿using MySalonModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using MySalonModels;
 
-namespace DAL
+namespace Services
 {
-    public interface IAppointmentRepository
+    interface IAppointmentService
     {
         Appointment CreateAppointment(Appointment appointment);
-        bool UpdateAppointment(Appointment appointment);
+        bool UpdateAppointment(Appointment appointment, int userId);
         List<Appointment> GetAllAppointmentByAdminId(int adminId);
         List<Appointment> GetAllAppointmentByUserId(int userId);
         bool DeleteAppointment(int appointmentId);
-
     }
 }
