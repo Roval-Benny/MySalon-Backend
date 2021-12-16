@@ -1,4 +1,4 @@
-﻿using MySalonModels;
+using MySalonModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace DAL
 
         public List<Cart> GetAllCartItemByUserId(int userId)
         {
-            return _salondbcontext.Carts.Where(s => s.UserId.Id == userId).ToList();
+            return _salondbcontext.Carts.Where(s => s.Id == userId).ToList();
 
         }
     }
