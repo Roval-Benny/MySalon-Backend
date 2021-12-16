@@ -8,7 +8,7 @@ namespace DAL
     public interface ICartRepository
     {
         List<Cart> GetAllCartItemByUserId(int userId);
-        bool DeleteACartItem(Cart cart);
+        bool DeleteACartItem(int id);
 
     }
 }
