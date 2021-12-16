@@ -5,12 +5,12 @@ using MySalonModels;
 
 namespace DAL
 {
-    public interface ITimeSlot
+    public interface ITimeSlotRepository
     {
         List<TimeSlot> GetTimeSlotsBySalonId(int salonId,string date);
         bool UpdateTimeSlot(int salonId,int serviceId,string date, TimeSlot timeSlot);
-        TimeSlot CreateTimeSlot(int salonId,int serviceId,int date);
-        bool DeleteTimeSlot(int salonId, int serviceId,int date);
+        TimeSlot CreateTimeSlot(int salonId,int serviceId,string date);
+        bool DeleteTimeSlot(int salonId, int serviceId,string date);
 
     }
 }

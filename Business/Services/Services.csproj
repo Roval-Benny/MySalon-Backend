@@ -17,4 +17,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataAccess\DAL\DAL.csproj" />
+    <ProjectReference Include="..\..\Models\Exceptions\Exceptions.csproj" />
+    <ProjectReference Include="..\..\Models\MySalonModels\MySalonModels.csproj" />
+  </ItemGroup>
+
 </Project>
