@@ -17,8 +17,8 @@ namespace MySalonModels
         public double Offer { get; set; }
         public string Image { get; set; }
         [Required]
-        public Service ServiceId { get; set; }
-        public Salon SalonId { get; set; }
+        public int ServiceId { get; set; }
+        public int SalonId { get; set; }
         public string SalonName { get; set; }
         public int Category { get; set; }
     }

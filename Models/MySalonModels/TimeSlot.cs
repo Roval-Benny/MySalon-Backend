@@ -11,8 +11,8 @@ namespace MySalonModels
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Salon SalonId { get; set; }
-        public Service ServiceId { get; set; }
+        public int SalonId { get; set; }
+        public int ServiceId { get; set; }
         public string Date { get; set; }
         public bool Time9To11 { get; set; }
         public bool Time11To1 { get; set; }
