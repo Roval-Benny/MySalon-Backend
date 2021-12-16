@@ -24,6 +24,10 @@ namespace UserService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
             services.AddControllers();
             //services.AddTransient<IUserService, UserService>();
         }
@@ -37,6 +41,12 @@ namespace UserService
             }
 
             app.UseRouting();
+
+            app.UseCors(x => x
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .SetIsOriginAllowed(origin => true) // allow any origin
+               .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
 
