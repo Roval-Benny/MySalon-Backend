@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MySalonModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using MySalonModels;
 
-namespace DAL
+namespace Services
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         User GetUser(string phoneNo);
         bool DeleteUser(string phoneNo);
