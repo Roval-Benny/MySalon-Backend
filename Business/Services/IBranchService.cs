@@ -8,5 +8,6 @@ namespace Services
         Branch CreateBranch(Branch branch);
         List<Branch> GetAllBranch();
         Branch GetBranchById(int id);
+        
     }
 }
