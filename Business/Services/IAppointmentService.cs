@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Services
 {
-    interface IAppointmentService
+    public interface IAppointmentService
     {
         Appointment CreateAppointment(Appointment appointment);
         bool UpdateAppointment(Appointment appointment, int userId);

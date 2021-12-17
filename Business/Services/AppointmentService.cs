@@ -58,16 +58,16 @@ namespace Services
             }
         }
 
-        public bool UpdateAppointment(Appointment appointment, int userId)
+        public bool UpdateAppointment(Appointment appointment, int appointmentId)
         {
-            var AppointmentInfo = _appointmentRepository.GetAllAppointmentByUserId(userId);
+            var AppointmentInfo = _appointmentRepository.GetAllAppointmentByUserId(appointmentId);
             if (AppointmentInfo != null)
             {
-                return _appointmentRepository.UpdateAppointment(appointment);
+                return _appointmentRepository.UpdateAppointment(appointmentId,appointment);
             }
             else
             {
-                throw new UserNotFoundException($"User with Id:{userId} does not exist");
+                throw new Exception($"Appointment with Id:{appointmentId} does not exist");
             }
         }
     }
