@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DAL;
 using Microsoft.EntityFrameworkCore;
+using Services;
 
 namespace AdminService
 {
@@ -31,6 +32,8 @@ namespace AdminService
                 options.UseSqlServer(Configuration.GetConnectionString("sqlstring"),
                     b => b.MigrationsAssembly("AdminService"));
             });
+            services.AddScoped<IAdminService,Services.AdminService>();
+            services.AddScoped<IAdminRepository,AdminRepository>();
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());

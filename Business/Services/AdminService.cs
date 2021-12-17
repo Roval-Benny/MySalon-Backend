@@ -16,8 +16,8 @@ namespace Services
         }
         public Admin CreateAdmin(Admin admin)
         {
-            _adminrepository.CreateAdmin(admin);
-            return admin;
+            return _adminrepository.CreateAdmin(admin);
+            
         }
 
         public bool DeleteAdmin(int adminId)
@@ -48,10 +48,10 @@ namespace Services
 
         public bool UpdateAdmin(Admin admin, string userName)
         {
-            var adminInfo = _adminrepository.GetAdminByUserName(userName);
-            if (adminInfo != null)
+            admin.UserName = userName;
+            if (_adminrepository.UpdateAdmin(admin))
             {
-                return _adminrepository.UpdateAdmin(adminInfo);
+                return true;
             }
             else
             {

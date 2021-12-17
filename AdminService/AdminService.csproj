@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Business\Services\Services.csproj" />
     <ProjectReference Include="..\DataAccess\DAL\DAL.csproj" />
     <ProjectReference Include="..\Models\Exceptions\Exceptions.csproj" />
     <ProjectReference Include="..\Models\MySalonModels\MySalonModels.csproj" />
