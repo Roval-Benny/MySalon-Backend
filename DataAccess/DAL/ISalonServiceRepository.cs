@@ -10,6 +10,6 @@ namespace DAL
         List<SalonServices> GetAllSalonServiceSalonId(int salonId,int category);
         List<SalonServices> GetAllSalonServiceSalonId(int salonId);
         SalonServices UpdateSalonService(int salonId,int serviceId,SalonServices salon);
-
+        bool UpdateSalonService(SalonServices salon);
     }
 }
