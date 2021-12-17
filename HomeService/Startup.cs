@@ -40,8 +40,7 @@ namespace HomeService
             services.AddScoped<IBranchRepository, BranchRepository>();
             services.AddScoped<IServiceService, ServiceService>();
             services.AddScoped<IServiceRepository, ServiceRepository>();
-            services.AddHealthChecks();
-            services.AddMvc();
+            services.AddControllers();
 
         }
 

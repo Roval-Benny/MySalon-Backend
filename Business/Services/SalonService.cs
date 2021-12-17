@@ -40,6 +40,16 @@ namespace Services
             else throw new SalonNotFoundException($"Salon with the Searched Location: {location} is Not Available");
         }
 
-        
+        public Salon CreateSalon(Salon salon)
+        {
+            if(salon == null)
+            {
+                return null;
+            }
+            else
+            {
+                return _repository.CreateSalon(salon);
+            }
+        }
     }
 }
