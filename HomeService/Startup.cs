@@ -36,7 +36,12 @@ namespace HomeService
                 options.UseSqlServer(Configuration.GetConnectionString("sqlstring"),
                     b => b.MigrationsAssembly("AdminService"));
             });
+            services.AddScoped<IBranchService, BranchService>();
+            services.AddScoped<IBranchRepository, BranchRepository>();
+            services.AddScoped<IServiceService, ServiceService>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
             services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +60,7 @@ namespace HomeService
                .SetIsOriginAllowed(origin => true) // allow any origin
                .AllowCredentials()); // allow credentials
 
-            app.UseAuthorization();
+             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

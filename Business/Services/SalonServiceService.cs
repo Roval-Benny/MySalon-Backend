@@ -7,18 +7,24 @@ using Exceptions;
 
 namespace Services
 {
-    class SalonServiceService : ISalonServiceService
+    public class SalonServiceService : ISalonServiceService
     {
         private readonly ISalonServiceRepository _repository;
         public SalonServiceService(ISalonServiceRepository repo) {
 
             _repository = repo;
         }
+
+        public SalonServices CreateSalonService(SalonServices salonService)
+        {
+            return _repository.CreateSalonService(salonService);
+        }
+
         public List<SalonServices> GetAllSalonServiceSalonId(int salonId, int category)
         {
-            if (GetAllSalonServiceSalonId(salonId) != null)
+            if (_repository.GetAllSalonServiceSalonId(salonId,category) != null)
             {
-                return _repository.GetAllSalonServiceSalonId(salonId);
+                return _repository.GetAllSalonServiceSalonId(salonId,category);
             }
             else
             {
@@ -28,7 +34,7 @@ namespace Services
 
         public List<SalonServices> GetAllSalonServiceSalonId(int salonId)
         {
-            if (GetAllSalonServiceSalonId(salonId) != null)
+            if (_repository.GetAllSalonServiceSalonId(salonId) != null)
             {
                 return _repository.GetAllSalonServiceSalonId(salonId);
             }
@@ -53,4 +59,8 @@ namespace Services
  
         }
 
-}   } 
+
+
+
+    }   
+} 

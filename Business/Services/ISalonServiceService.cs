@@ -5,10 +5,11 @@ using System.Text;
 
 namespace Services
 {
-    interface ISalonServiceService
+    public interface ISalonServiceService
     {
         List<SalonServices> GetAllSalonServiceSalonId(int salonId, int category);
         List<SalonServices> GetAllSalonServiceSalonId(int salonId);
         bool UpdateSalonService(int salonId,SalonServices salon);
+        SalonServices CreateSalonService(SalonServices salonService);
     }
 }

@@ -21,13 +21,21 @@ namespace Services
             {
                 throw new NullValueException("Some values is wrong");
             }
-            return CreateTimeSlot(salonId, serviceId, date);
+            return _repository.CreateTimeSlot(salonId, serviceId, date);
         }
         public bool DeleteTimeSlot(int salonId, int serviceId, string date)
         {
             if (_repository.DeleteTimeSlot(salonId, serviceId, date)) return true;
             else throw new TimeSlotNotFoundException($"TimeSlot with SalonId: {salonId} ServiceId: {serviceId} Date: {date} Not Found");
         }
+
+        public TimeSlot GetTimeSlotByServiceId(int salonId, int serviceId, string date)
+        {
+            if (_repository.GetTimeSlotByServiceId(salonId, serviceId, date) != null)
+                return _repository.GetTimeSlotByServiceId(salonId, serviceId, date);
+            else throw new TimeSlotNotFoundException($"TimeSlot with SalonId: {salonId} ServiceId: {serviceId} Date: {date} Not Found");
+        }
+
         public List<TimeSlot> GetTimeSlotsBySalonId(int salonId, string date)
         {
             if (_repository.GetTimeSlotsBySalonId(salonId, date) != null)

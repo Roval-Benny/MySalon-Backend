@@ -11,5 +11,7 @@ namespace DAL
         List<SalonServices> GetAllSalonServiceSalonId(int salonId);
         bool UpdateSalonService(int salonId,SalonServices salon);
         bool UpdateSalonService(SalonServices salon);
+        SalonServices CreateSalonService(SalonServices salonService);
+
     }
 }
