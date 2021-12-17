@@ -38,6 +38,8 @@ namespace CartService
             });
             services.AddScoped<ICartService, Services.CartService>();
             services.AddScoped<ICartRepository,CartRepository>();
+            services.AddScoped<IUserService, Services.UserService>();
+            services.AddScoped<IUserRepository,UserRepository>();
             services.AddControllers();
         }
 

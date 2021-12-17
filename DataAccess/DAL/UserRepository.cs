@@ -9,19 +9,19 @@ using System.Text;
 
 namespace DAL
 {
-    class UserServiceRepository : IUserRepository
+   public class UserRepository : IUserRepository
     {
         private readonly MySalonDbContext _context;
-        public UserServiceRepository(MySalonDbContext dbContext)
+        public UserRepository(MySalonDbContext dbContext)
         {
             _context = dbContext;
         }
-        public User CreateJWToken(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return user;
-        }
+        //public User CreateJWToken(User user)
+        //{
+        //    _context.Users.Add(user);
+        //    _context.SaveChanges();
+        //    return user;
+        //}
 
         public User CreateUser(User user)
         {
