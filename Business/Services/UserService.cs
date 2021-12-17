@@ -27,13 +27,13 @@ namespace Services
 
         public bool DeleteUser(string phoneNo)
         {
-            if (_userRepository.DeleteUser(phoneNo) == false)
+            if (_userRepository.DeleteUser(phoneNo))
             {
-                throw new UserNotFoundException($"This userid: {phoneNo} already exists");
+                return true;
             }
             else
             {
-                return _userRepository.DeleteUser(phoneNo);
+                throw new UserNotFoundException($"Admin with phone number:{phoneNo} does not exist");
             }
         }
 
@@ -41,11 +41,11 @@ namespace Services
         {
             if (_userRepository.GetUser(phoneNo) != null)
             {
-                throw new UserAlreadyExistsException($"This userid: {phoneNo} already exists");
+                return _userRepository.GetUser(phoneNo);
             }
             else
             {
-                return _userRepository.GetUser(phoneNo);
+                throw new UserNotFoundException($"The user with phone no: {phoneNo} not exists");
             }
         }
 

@@ -9,19 +9,19 @@ using System.Text;
 
 namespace DAL
 {
-    class UserServiceRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly MySalonDbContext _context;
-        public UserServiceRepository(MySalonDbContext dbContext)
+        public UserRepository(MySalonDbContext dbContext)
         {
             _context = dbContext;
         }
-        public User CreateJWToken(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return user;
-        }
+        //public User CreateJWToken(User user)
+        //{
+        //    _context.Users.Add(user);
+        //    _context.SaveChanges();
+        //    return user;
+        //}
 
         public User CreateUser(User user)
         {
@@ -33,7 +33,7 @@ namespace DAL
         public bool DeleteUser(string phoneNo)
         {
 
-            var user = _context.Users.FirstOrDefault(u => u.UserId == phoneNo);
+            var user = _context.Users.FirstOrDefault(u => u.PhoneNo == phoneNo);
             if (user == null)
             {
                 return false;
@@ -45,7 +45,8 @@ namespace DAL
 
         public User GetUser(string phoneNo)
         {
-            return _context.Users.Find(phoneNo);
+            return _context.Users.FirstOrDefault(item => item.PhoneNo == phoneNo);
+
         }
 
         //public string CreateJWToken(User user)
@@ -65,3 +66,4 @@ namespace DAL
 
     }
 }
+
