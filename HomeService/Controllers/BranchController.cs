@@ -28,9 +28,15 @@ namespace HomeService.Controllers
         }
         // GET: api/<BranchController>
         [HttpGet]
-        public List<Branch> Get()
+        public IActionResult GetAllBranches ()
         {
-            return _branchService.GetAllBranch();
+            try
+            {
+                return Ok(_branchService.GetAllBranch());
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<BranchController>/5
@@ -50,9 +56,16 @@ namespace HomeService.Controllers
         }
             // POST api/<BranchController>
         [HttpPost]
-        public Branch Create([FromBody] Branch branch)
+        public IActionResult Create([FromBody] Branch branch)
         {
-            return _branchService.CreateBranch(branch);
+            try
+            {
+                return Ok(_branchService.CreateBranch(branch));
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
        
     }

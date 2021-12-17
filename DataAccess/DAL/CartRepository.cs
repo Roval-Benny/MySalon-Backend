@@ -13,6 +13,14 @@ namespace DAL
         {
             _salondbcontext = dbContext;
         }
+
+        public Cart AddItemToCart(Cart cart)
+        {
+            _salondbcontext.Carts.Add(cart);
+            _salondbcontext.SaveChanges();
+            return cart;
+        }
+
         public bool DeleteACartItem(int id)
         {
             var cart = _salondbcontext.Carts.Find(id);

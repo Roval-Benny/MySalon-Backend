@@ -14,6 +14,20 @@ namespace Services
         {
             _repository = repo;
         }
+
+        public Cart AddItemToCart(Cart cart)
+        {
+            var cartItem = _repository.AddItemToCart(cart);
+            if(cartItem == null)
+            {
+                throw new Exception("Item is not added to the cart");
+            }
+            else
+            {
+                return cartItem;
+            }
+        }
+
         public bool DeleteACartItem(int id)
         {
             if (_repository.DeleteACartItem(id))

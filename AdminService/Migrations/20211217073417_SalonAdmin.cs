@@ -2,7 +2,7 @@
 
 namespace AdminService.Migrations
 {
-    public partial class Migrations : Migration
+    public partial class SalonAdmin : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

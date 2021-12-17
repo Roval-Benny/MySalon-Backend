@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminService.Migrations
 {
     [DbContext(typeof(MySalonDbContext))]
-    [Migration("20211217022546_Migrations")]
-    partial class Migrations
+    [Migration("20211217073417_SalonAdmin")]
+    partial class SalonAdmin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

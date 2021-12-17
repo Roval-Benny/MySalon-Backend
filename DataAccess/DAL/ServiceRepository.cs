@@ -20,9 +20,9 @@ namespace DAL
             return service;
         }
 
-        public bool DeleteService(Service service)
+        public bool DeleteService(int serviceId)
         {
-            Service serviceToDelete = _context.Services.Find(service);
+            Service serviceToDelete = _context.Services.FirstOrDefault(s => s.Id == serviceId);
             if(serviceToDelete == null)
             {
                 return false;

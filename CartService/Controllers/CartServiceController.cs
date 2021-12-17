@@ -44,8 +44,15 @@ namespace CartService.Controllers
 
         // POST api/<CartServiceController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult AddItemToCart([FromBody] Cart value)
         {
+            try
+            {
+                return Ok(_cartService.AddItemToCart(value));
+            }catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // PUT api/<CartServiceController>/5
