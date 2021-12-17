@@ -9,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Services;
+using DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace HomeService
 {
@@ -27,6 +30,11 @@ namespace HomeService
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+            services.AddDbContext<MySalonDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("sqlstring"),
+                    b => b.MigrationsAssembly("AdminService"));
             });
             services.AddControllers();
         }
