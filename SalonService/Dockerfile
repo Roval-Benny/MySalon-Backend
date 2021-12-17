@@ -7,6 +7,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["SalonService/SalonService.csproj", "SalonService/"]
+COPY ["Models/Exceptions/Exceptions.csproj", "Models/Exceptions/"]
+COPY ["Business/Services/Services.csproj", "Business/Services/"]
+COPY ["Models/MySalonModels/MySalonModels.csproj", "Models/MySalonModels/"]
+COPY ["DataAccess/DAL/DAL.csproj", "DataAccess/DAL/"]
 RUN dotnet restore "SalonService/SalonService.csproj"
 COPY . .
 WORKDIR "/src/SalonService"

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MySalonModels;
 using Services;
@@ -27,27 +28,44 @@ namespace HomeService.Controllers
         }
         // GET: api/<ServiceController>
         [HttpGet]
-        public List<Service> GetAllService()
+        public IActionResult GetAllService()
         {
-            return _serviceService.GetAllService();
+            try
+            {
+                List<Service> services = _serviceService.GetAllService();
+                return Ok(services);
+            }catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // POST api/<ServiceController>
         [HttpPost]
-        public Service Add([FromBody] Service service)
+        public IActionResult Add([FromBody] Service service)
         {
-            return _serviceService.AddService(service);
+            try
+            {
+                Service ser = _serviceService.AddService(service);
+                return Ok(ser);
+            }catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // DELETE api/<ServiceController>/5
         [HttpDelete("{id}")]
-        public IActionResult DeleteUser(Service service)
+        public IActionResult DeleteUser(int id)
         {
-            if (_serviceService.DeleteService(service))
-                return Ok("true");
-            else
+            try
             {
-                return NotFound($"User with id: {service} does not exist");
+
+                _serviceService.DeleteService(id);
+                return Ok("Deleted");
+            }catch(ServiceNotFoundException e)
+            {
+                return BadRequest(e.Message);
             }
         }
     }

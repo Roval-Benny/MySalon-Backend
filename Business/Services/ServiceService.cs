@@ -23,15 +23,15 @@ namespace Services
             return _repository.AddService(service);
         }
 
-        public bool DeleteService(Service service)
+        public bool DeleteService(int  serviceId)
         {
-            if (_repository.DeleteService(service))
+            if (_repository.DeleteService(serviceId))
             {
                 return true;
             }
             else
             {
-                throw new ServiceNotFoundException($"Category with service: {service} does not exist");
+                throw new ServiceNotFoundException($"Service with serviceId: {serviceId} does not exist");
             }
         }
 
@@ -41,34 +41,3 @@ namespace Services
         }
     }
 }
-
-
-
-//namespace Services
-//{
-//    public class UserService : IUserService
-//    {
-//        private readonly IUserRepository _userRepository;
-//        public UserService(IUserRepository repository)
-//        {
-//            _userRepository = repository;
-//        }
-
-
-//public User CreateUser(User user)
-//{
-
-//    if (_userRepository.CreateUser(user.UserId) != null)
-//    {
-//        throw new ArgumentNullException($"This userid: {user.UserId} already exists");
-//    }
-//    else
-//    {
-//        return _userRepository.CreateUser(user);
-//    }
-//}
-
-//public bool DeleteUser(string phoneNo)
-//{
-//    return _userRepository.DeleteUser(phoneNo);
-//}

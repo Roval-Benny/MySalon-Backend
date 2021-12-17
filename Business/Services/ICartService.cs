@@ -9,5 +9,7 @@ namespace Services
     {
         List<Cart> GetAllCartItemByUserId(int userId);
         bool DeleteACartItem(int Id);
+        Cart AddItemToCart(Cart cart);
+
     }
 }
