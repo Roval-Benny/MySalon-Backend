@@ -75,8 +75,8 @@ namespace CartService.Controllers
         }
 
         // PUT api/<AppointmentController>/5
-        [HttpPut("{id}")]
-        public IActionResult UpdateAppointment(int id, [FromBody] Appointment value)
+        [HttpPut("{id}/{value}")]
+        public IActionResult UpdateAppointment(int id, int value)
         {
             try
             {

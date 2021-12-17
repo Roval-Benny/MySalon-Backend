@@ -32,16 +32,16 @@ namespace Services
             }
         }
 
-        public Admin GetAdminByUserName(string userName)
+        public Admin GetAdminByUserName(string phoneNo)
         {
-            var adminInfo = _adminrepository.GetAdminByUserName(userName);
+            var adminInfo = _adminrepository.GetAdminByUserName(phoneNo);
             if (adminInfo != null)
             {
-                return _adminrepository.GetAdminByUserName(userName);
+                return _adminrepository.GetAdminByUserName(phoneNo);
             }
             else
             {
-                throw new AdminNotFoundException($"Admin with UserName:{userName} does not exist");
+                throw new AdminNotFoundException($"Admin with Phone Number:{phoneNo} does not exist");
 
             }
         }

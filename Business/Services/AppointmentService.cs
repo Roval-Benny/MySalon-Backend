@@ -58,10 +58,9 @@ namespace Services
             }
         }
 
-        public bool UpdateAppointment(Appointment appointment, int appointmentId)
+        public bool UpdateAppointment(int appointment, int appointmentId)
         {
-            var AppointmentInfo = _appointmentRepository.GetAllAppointmentByUserId(appointmentId);
-            if (AppointmentInfo != null)
+            if (appointmentId!=null)
             {
                 return _appointmentRepository.UpdateAppointment(appointmentId,appointment);
             }

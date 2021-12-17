@@ -37,6 +37,23 @@ namespace Services
             }
         }
 
+        public List<User> GetAllUser()
+        {
+            return _userRepository.GetAllUser();
+        }
+
+        public User GetById(int id)
+        {
+            if (_userRepository.GetById(id) == null)
+            {
+                throw new UserNotFoundException($"User with userId:{id} not exists");
+            }
+            else
+            {
+                return _userRepository.GetById(id);
+            }
+        }
+
         public User GetUser(string phoneNo)
         {
             if (_userRepository.GetUser(phoneNo) != null)

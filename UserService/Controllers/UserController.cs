@@ -22,11 +22,31 @@ namespace UserService.Controllers
         }
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult GetAllUser()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_userService.GetAllUser());
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-
+        [HttpGet("{id:int}")]
+        public IActionResult GetUserById(int id)
+        {
+            try
+            {
+                return Ok(_userService.GetById(id));
+            }catch(UserNotFoundException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         // GET api/<UserController>/5
         [HttpGet("{phoneNo}")]
         public IActionResult GetUser(string phoneNo)

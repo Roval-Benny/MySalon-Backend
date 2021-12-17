@@ -43,6 +43,16 @@ namespace DAL
             return true;
         }
 
+        public List<User> GetAllUser()
+        {
+            return _context.Users.ToList();
+        }
+
+        public User GetById(int id)
+        {
+            return _context.Users.FirstOrDefault<User>(x => x.Id == id);
+        }
+
         public User GetUser(string phoneNo)
         {
             return _context.Users.FirstOrDefault(item => item.PhoneNo == phoneNo);
