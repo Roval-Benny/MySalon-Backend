@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Services
 {
-    class CartService : ICartService
+    public class CartService : ICartService
     {
         private readonly ICartRepository _repository;
         public CartService(ICartRepository repo)

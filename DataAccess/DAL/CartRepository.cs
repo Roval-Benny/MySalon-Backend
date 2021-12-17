@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DAL
 {
-    class CartRepository : ICartRepository
+    public class CartRepository : ICartRepository
     {
         private readonly MySalonDbContext _salondbcontext;
         public CartRepository(MySalonDbContext dbContext)
@@ -15,7 +15,7 @@ namespace DAL
         }
         public bool DeleteACartItem(int id)
         {
-            var cart = _salondbcontext.Carts.FirstOrDefault(item => item.Id == id);
+            var cart = _salondbcontext.Carts.Find(id);
             if (cart == null)
             {
                 return false;
@@ -27,7 +27,7 @@ namespace DAL
 
         public List<Cart> GetAllCartItemByUserId(int userId)
         {
-            return _salondbcontext.Carts.Where(s => s.Id == userId).ToList();
+            return _salondbcontext.Carts.Where(s => s.UserId == userId).ToList();
 
         }
     }

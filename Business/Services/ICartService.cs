@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Services
 {
-    interface ICartService
+    public interface ICartService
     {
         List<Cart> GetAllCartItemByUserId(int userId);
         bool DeleteACartItem(int Id);
