@@ -46,9 +46,14 @@ namespace DAL
             return _context.TimeSlots.Where<TimeSlot>(x =>x.SalonId==salonId && x.Date==date).ToList();
         }
 
+        public TimeSlot GetTimeSlotByServiceId(int salonId,int serviceId,string date)
+        {
+            return _context.TimeSlots.Where<TimeSlot>(x=>x.SalonId==salonId &&x.ServiceId==serviceId && x.Date==date).FirstOrDefault();
+        }
+
         public bool UpdateTimeSlot(int salonId, int serviceId, string date, TimeSlot timeSlot)
         {
-            var slot = _context.TimeSlots.Find(salonId,serviceId,date);
+            var slot = _context.TimeSlots.FirstOrDefault<TimeSlot>(x => x.ServiceId == serviceId && x.SalonId == salonId && x.Date == date);
             if(slot == null) return false;
             slot.Time9To11 = timeSlot.Time9To11;
             slot.Time4To6 = timeSlot.Time4To6;

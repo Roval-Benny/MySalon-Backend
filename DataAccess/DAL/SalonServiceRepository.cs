@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DAL
 {
-    class SalonServiceRepository : ISalonServiceRepository
+    public class SalonServiceRepository : ISalonServiceRepository
     {
         private readonly MySalonDbContext _salondbcontext;
         public SalonServiceRepository(MySalonDbContext dbContext)
@@ -25,7 +25,7 @@ namespace DAL
             return _salondbcontext.SalonServices.Where(s => s.SalonId == salonId).ToList();
         }
 
-        public Boolean UpdateSalonService(int salonId, SalonServices salon)
+        public bool UpdateSalonService(int salonId, SalonServices salon)
         {
             var salonserviceToUpdate = _salondbcontext.SalonServices.FirstOrDefault(s => s.Id == salon.Id);
             if (salonserviceToUpdate != null)
@@ -43,10 +43,19 @@ namespace DAL
                 return false;
             
         }
+        public SalonServices CreateSalonService(SalonServices salonService)
+        {
+            _salondbcontext.SalonServices.Add(salonService);
+            _salondbcontext.SaveChanges();
+            return salonService;
 
-        public bool UpdateSalonService(SalonServices salon)
+        }
+    public bool UpdateSalonService(SalonServices salon)
         {
             throw new NotImplementedException();
         }
+
+        
+
     }
 }

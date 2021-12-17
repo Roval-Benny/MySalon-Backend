@@ -11,5 +11,6 @@ namespace DAL
         Salon GetSalon(int id);
         List<Salon> GetAllSalonsByLocation(string location);
 
+        Salon CreateSalon(Salon salon);
     }
 }
