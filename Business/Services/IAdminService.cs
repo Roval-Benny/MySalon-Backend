@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Services
 {
-    interface IAdminService
+    public interface IAdminService
     {
         Admin GetAdminByUserName(string userName);
         Admin CreateAdmin(Admin admin);

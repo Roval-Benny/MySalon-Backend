@@ -11,6 +11,7 @@ namespace DAL
         bool UpdateTimeSlot(int salonId,int serviceId,string date, TimeSlot timeSlot);
         TimeSlot CreateTimeSlot(int salonId,int serviceId,string date);
         bool DeleteTimeSlot(int salonId, int serviceId,string date);
+        TimeSlot GetTimeSlotByServiceId(int salonId, int serviceId, string date);
 
     }
 }

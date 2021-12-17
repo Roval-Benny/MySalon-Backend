@@ -27,7 +27,7 @@ namespace HomeService.Controllers
         }
         // GET: api/<ServiceController>
         [HttpGet]
-        public List<Service> Get()
+        public List<Service> GetAllService()
         {
             return _serviceService.GetAllService();
         }

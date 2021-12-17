@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AdminService.DataAccess
+namespace DAL
 {
     public class AdminRepository : IAdminRepository
     {
@@ -28,9 +28,9 @@ namespace AdminService.DataAccess
             return admin;
         }
 
-        public bool DeleteAdmin(int adminId)
+        public bool DeleteAdmin(int id)
         {
-            var admin = _salondbcontext.Admins.FirstOrDefault(item => item.Id == adminId);
+            var admin = _salondbcontext.Admins.Find(id);
             if (admin != null)
             {
                 _salondbcontext.Admins.Remove(admin);
@@ -45,8 +45,12 @@ namespace AdminService.DataAccess
 
         public bool UpdateAdmin(Admin admin)
         {
-            var adminToUpdate = _salondbcontext.Admins.FirstOrDefault(a => a.Id == admin.Id);
-            if (adminToUpdate != null)
+            Admin adminToUpdate = _salondbcontext.Admins.Find(admin.Id);
+            if (adminToUpdate == null)
+            {
+                return false;
+            }
+            else
             {
                 adminToUpdate.Id = admin.Id;
                 adminToUpdate.PhoneNo = admin.PhoneNo;
@@ -57,7 +61,6 @@ namespace AdminService.DataAccess
                 _salondbcontext.SaveChanges();
                 return true;
             }
-            return false;
         }
     }
 }

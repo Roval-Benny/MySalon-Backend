@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
-    class SalonRepository : ISalonRepository
+    public class SalonRepository : ISalonRepository
     {
         private readonly MySalonDbContext _context;
 
@@ -15,6 +15,14 @@ namespace DAL
         {
             _context = dbContext;
         }
+
+        public Salon CreateSalon(Salon salon)
+        {
+            _context.Salon.Add(salon);
+            _context.SaveChanges();
+            return salon;
+        }
+
         public List<Salon> GetAllSalons()
         {
             return _context.Salon.ToList();

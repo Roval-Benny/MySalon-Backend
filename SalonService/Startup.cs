@@ -11,6 +11,7 @@ using System.Linq;
 using DAL;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Services;
 
 namespace SalonService
 {
@@ -35,6 +36,12 @@ namespace SalonService
                 options.UseSqlServer(Configuration.GetConnectionString("sqlstring"),
                     b => b.MigrationsAssembly("AdminService"));
             });
+            services.AddScoped<ISalonRepository,SalonRepository>();
+            services.AddScoped<ISalonService,Services.SalonService>();
+            services.AddScoped<ISalonServiceRepository, SalonServiceRepository>();
+            services.AddScoped<ISalonServiceService, SalonServiceService>();
+            services.AddScoped<ITimeSlotRepository, TimeSlotRepository>();
+            services.AddScoped<ITimeSlotService, TimeSlotService>();
             services.AddControllers();
         }
 
