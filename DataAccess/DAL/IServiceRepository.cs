@@ -9,7 +9,7 @@ namespace DAL
     {
         List<Service> GetAllService();
         Service AddService(Service service);
-        bool DeleteService(Service service);
+        bool DeleteService(int serviceId);
 
     }
 }
