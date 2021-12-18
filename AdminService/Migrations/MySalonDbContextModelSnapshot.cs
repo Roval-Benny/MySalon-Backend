@@ -25,13 +25,22 @@ namespace AdminService.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Offer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
                     b.Property<string>("SalonName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")

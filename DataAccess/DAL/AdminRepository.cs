@@ -57,6 +57,9 @@ namespace DAL
                 adminToUpdate.SalonId = admin.SalonId;
                 adminToUpdate.SalonName = admin.SalonName;
                 adminToUpdate.UserName = admin.UserName;
+                adminToUpdate.ServiceName = admin.ServiceName;
+                adminToUpdate.Price = admin.Price;
+                adminToUpdate.Offer = admin.Offer;
                 _salondbcontext.Entry(adminToUpdate).State = EntityState.Modified;
                 _salondbcontext.SaveChanges();
                 return true;

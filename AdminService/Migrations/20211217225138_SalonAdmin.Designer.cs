@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminService.Migrations
 {
     [DbContext(typeof(MySalonDbContext))]
-    [Migration("20211217073417_SalonAdmin")]
+    [Migration("20211217225138_SalonAdmin")]
     partial class SalonAdmin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,22 @@ namespace AdminService.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Offer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
                     b.Property<string>("SalonName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
