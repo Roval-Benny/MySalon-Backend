@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Services;
 
 namespace CartService
 {
@@ -38,6 +39,8 @@ namespace CartService
             });
             services.AddScoped<ICartService, Services.CartService>();
             services.AddScoped<ICartRepository,CartRepository>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddControllers();
         }
 

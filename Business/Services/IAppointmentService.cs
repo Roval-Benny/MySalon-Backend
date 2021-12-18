@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Services
 {
-    interface IAppointmentService
+    public interface IAppointmentService
     {
         Appointment CreateAppointment(Appointment appointment);
-        bool UpdateAppointment(Appointment appointment, int userId);
+        bool UpdateAppointment(int appointment, int userId);
         List<Appointment> GetAllAppointmentByAdminId(int adminId);
         List<Appointment> GetAllAppointmentByUserId(int userId);
         bool DeleteAppointment(int appointmentId);

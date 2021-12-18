@@ -7,7 +7,7 @@ namespace DAL
 {
     public interface IAdminRepository
     {
-        Admin GetAdminByUserName(string userName);
+        Admin GetAdminByUserName(string phoneNo);
         Admin CreateAdmin(Admin admin);
         bool DeleteAdmin(int adminId);
         bool UpdateAdmin(Admin admin);

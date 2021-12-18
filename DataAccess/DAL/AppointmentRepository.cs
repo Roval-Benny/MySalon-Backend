@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DAL
 {
-    class AppointmentRepository : IAppointmentRepository
+    public class AppointmentRepository : IAppointmentRepository
     {
         private readonly MySalonDbContext _salonedbcontext;
         public AppointmentRepository(MySalonDbContext dbcontext)
@@ -38,25 +38,24 @@ namespace DAL
 
         public List<Appointment> GetAllAppointmentByAdminId(int adminId)
         {
-            return _salonedbcontext.Appointments.Where(a => a.Id == adminId).ToList();
+            return _salonedbcontext.Appointments.Where(a => a.SalonId == adminId).ToList();
         }
 
         public List<Appointment> GetAllAppointmentByUserId(int userId)
         {
-            return _salonedbcontext.Appointments.Where(u => u.Id == userId).ToList();
+            return _salonedbcontext.Appointments.Where(u => u.UserId == userId).ToList();
         }
 
-        public bool UpdateAppointment(Appointment appointment)
+        public bool UpdateAppointment(int appointmentId,int appointment)
         {
-            var appointmentToUpdate = _salonedbcontext.Appointments.FirstOrDefault(a => a.Id == appointment.Id);
+            var appointmentToUpdate = _salonedbcontext.Appointments.FirstOrDefault(a => a.Id == appointmentId);
             if (appointmentToUpdate != null)
             {
-                appointmentToUpdate.Id = appointment.Id;
-                appointmentToUpdate.Price = appointment.Price;
-                appointmentToUpdate.SalonId = appointment.SalonId;
-                appointmentToUpdate.SalonName = appointment.SalonName;
-                appointmentToUpdate.Status = appointment.Status;
-                appointmentToUpdate.Time = appointment.Time;
+                //appointmentToUpdate.Price = appointment.Price;
+                //appointmentToUpdate.SalonId = appointment.SalonId;
+                //appointmentToUpdate.SalonName = appointment.SalonName;
+                appointmentToUpdate.Status = appointment;
+               // appointmentToUpdate.Time = appointment.Time;
 
                 _salonedbcontext.Entry(appointmentToUpdate).State = EntityState.Modified;
                 _salonedbcontext.SaveChanges();

@@ -16,9 +16,9 @@ namespace DAL
             _salondbcontext = dbContext;
         }
 
-        public Admin GetAdminByUserName(string userName)
+        public Admin GetAdminByUserName(string phoneNo)
         {
-            return _salondbcontext.Admins.FirstOrDefault(item => item.UserName == userName);
+            return _salondbcontext.Admins.FirstOrDefault(item => item.PhoneNo == phoneNo);
         }
 
         public Admin CreateAdmin(Admin admin)

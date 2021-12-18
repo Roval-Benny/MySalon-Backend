@@ -42,12 +42,12 @@ namespace AdminService.Controllers
 
 
         // GET api/<AdminController>/5
-        [HttpGet("{UserName}")]
-        public ActionResult Get(string UserName)
+        [HttpGet("{phoneNo}")]
+        public ActionResult Get(string phoneNo)
         {
             try
             {
-                var getUser = _adminService.GetAdminByUserName(UserName);
+                var getUser = _adminService.GetAdminByUserName(phoneNo);
                 return Ok(getUser);
             }
             catch (UserNotFoundException unfe)
