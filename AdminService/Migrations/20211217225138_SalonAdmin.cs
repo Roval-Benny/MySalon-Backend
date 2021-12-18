@@ -15,7 +15,10 @@ namespace AdminService.Migrations
                     PhoneNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SalonId = table.Column<int>(type: "int", nullable: false),
-                    SalonName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    SalonName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ServiceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Offer = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
