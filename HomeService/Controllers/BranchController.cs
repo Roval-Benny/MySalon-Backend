@@ -43,7 +43,6 @@ namespace HomeService.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            _logger.LogInformation("User id:" + id);
             try
             {
                 Branch branch = _branchService.GetBranchById(id);

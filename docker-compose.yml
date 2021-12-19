@@ -1,49 +1,36 @@
 version: '3.4'
 
 services:
-  HomeService:
-    image: ${DOCKER_REGISTRY-}HomeService
-    build:
-      context: .
-      dockerfile: HomeService/Dockerfile
-    ports:
-      - "35667:80"
-
-
-  AdminService:
-    image: ${DOCKER_REGISTRY-}AdminService
-    build:
-      context: .
-      dockerfile: AdminService/Dockerfile
-    ports:
-      - "52207:80"
-    
-
-  SalonService:
-    image: ${DOCKER_REGISTRY-}SalonService
-    build:
-      context: .
-      dockerfile: SalonService/Dockerfile
-    ports:
-      - "12292:80"
-
-
- UserService:
-    image: ${DOCKER_REGISTRY-}UserService
+  userservice:
+    image: ${DOCKER_REGISTRY-}userservice
     build:
       context: .
       dockerfile: UserService/Dockerfile
-    ports:
-      - "39812:80"
+
+  adminservice:
+    image: ${DOCKER_REGISTRY-}adminservice
+    build:
+      context: .
+      dockerfile: AdminService/Dockerfile
 
 
-CartService:
-    image: ${DOCKER_REGISTRY-}CartService
+  homeservice:
+    image: ${DOCKER_REGISTRY-}homeservice
+    build:
+      context: .
+      dockerfile: HomeService/Dockerfile
+
+
+  salonservice:
+    image: ${DOCKER_REGISTRY-}salonservice
+    build:
+      context: .
+      dockerfile: SalonService/Dockerfile
+
+
+  cartservice:
+    image: ${DOCKER_REGISTRY-}cartservice
     build:
       context: .
       dockerfile: CartService/Dockerfile
-    ports:
-      - "36749:80"
-
-
 

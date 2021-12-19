@@ -15,9 +15,6 @@ namespace MySalonModels
         public string UserName { get; set; }
         public int SalonId { get; set; }
         public string SalonName { get; set; }
-        public string ServiceName { get; set; }
-        public string Price { get; set; }
-        public string Offer { get; set; }
 
     }
 }

@@ -54,9 +54,9 @@ namespace AdminService.Controllers
             {
                 return NotFound(unfe.Message);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(500);
+                return BadRequest(e.Message);
             }
         }
 
