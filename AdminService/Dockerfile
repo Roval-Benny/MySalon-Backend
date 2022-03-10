@@ -22,4 +22,5 @@ RUN dotnet publish "AdminService.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "AdminService.dll"]
+#ENTRYPOINT ["dotnet", "AdminService.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet AdminService.dll

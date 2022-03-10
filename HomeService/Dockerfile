@@ -22,4 +22,5 @@ RUN dotnet publish "HomeService.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "HomeService.dll"]
+#ENTRYPOINT ["dotnet", "HomeService.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet HomeService.dll
